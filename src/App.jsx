@@ -16,7 +16,6 @@ function App() {
     })
     .then ((data) => {
       setBeerData(data)
-      console.log(beerData)
     })
   }
 
@@ -26,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavContainer setBeerData= {setBeerData}/>
+      {beerData && <NavContainer setBeerData= {setBeerData} beerData={beerData} getBeerData={getBeerData}/>}
       {beerData && <HomeContainer beerArr={beerData}/>}
     </div>
   );

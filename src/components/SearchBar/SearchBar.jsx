@@ -1,10 +1,19 @@
 
 
 const SearchBar = (props) => {
+    const {search, handleInput} = props;
 
     return (
         <>
-        <input></input>
+        <form>
+            <label>Search</label>
+            <input
+            type="text"
+            name="Search"
+            value={search}
+            onInput= {handleInput}
+            />
+        </form>
         </>
     )
 }
