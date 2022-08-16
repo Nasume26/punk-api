@@ -1,0 +1,15 @@
+@use "../../sass/vars" as *;
+
+.beer-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $color-black;
+    width: 20%;
+    text-align: center;
+
+    img {
+        width: 50%;
+    }
+}
