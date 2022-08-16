@@ -1,12 +1,15 @@
 import "./NavContainer.scss"
+import SearchBar from "../../components/SearchBar/SearchBar";
 
-const NavContainer = () => {
+const NavContainer = (props) => {
+    const {setBeerData} = props;
 
 
     return (
-        <>
-        <p>Nav Works</p>
-        </>
+        <div>
+            <h1>PLACEHOLDERTITLE</h1>
+            <SearchBar />
+        </div>
     )
 }
 

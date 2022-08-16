@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavContainer />
+      <NavContainer setBeerData= {setBeerData}/>
       {beerData && <HomeContainer beerArr={beerData}/>}
     </div>
   );
