@@ -7,7 +7,7 @@ import HomeContainer from "../HomeContainer/HomeContainer";
 
 const NavContainer = (props) => {
     const {setBeerData, beerData, getBeerData} = props;
-    const [search,setSearch] = useState([])
+    const [search,setSearch] = useState("")
     const [abvChecked, setAbvChecked] = useState(false)
     const [classicChecked,setClassicChecked] = useState(false)
     const [mappedBeers, setMappedBeers] = useState ([])
@@ -25,6 +25,8 @@ const NavContainer = (props) => {
         return lowerCaseBeer.includes(search)
     })
 
+
+
     const resultsCounter = filteredBeer.length;
 
     const totalCounter= beerData.length;
@@ -36,6 +38,7 @@ const NavContainer = (props) => {
     useEffect(setSearch,[])
     useEffect(onPageLoadMap, [])
     
+    
 
 
     
@@ -44,11 +47,11 @@ const NavContainer = (props) => {
         if(event.target.name === "abv") {
             console.log(event.target.name)
             return setAbvChecked(!abvChecked),
-            onPageLoadMap()
+            setSearch("")
            
         } else if (event.target.name === "classic range") {
             return setClassicChecked(!classicChecked),
-            onPageLoadMap()
+            setSearch("")
         }
 
 
