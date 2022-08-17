@@ -43,15 +43,18 @@ const NavContainer = (props) => {
     const handleCheck = (event) => {
         if(event.target.name === "abv") {
             console.log(event.target.name)
-            return setAbvChecked(!abvChecked)
+            return setAbvChecked(!abvChecked),
+            onPageLoadMap()
            
         } else if (event.target.name === "classic range") {
-            return setClassicChecked(!classicChecked)
+            return setClassicChecked(!classicChecked),
+            onPageLoadMap()
         }
 
 
        
     }
+
  
     const handleCheckBooleans = () => {
          if(abvChecked === false && classicChecked === false) {
@@ -64,7 +67,7 @@ const NavContainer = (props) => {
             }))
         } else if (classicChecked === true && abvChecked === false ) {
             setMappedBeers ( beerData.filter((beer) => {
-                return beer.first_brewed.slice(-2) <= 5;
+                return beer.first_brewed.slice(-2) <= 10;
             }))
         }
     }
@@ -79,7 +82,7 @@ const NavContainer = (props) => {
                 <h1>Filters:</h1>
                 <Filters handleCheck= {handleCheck} abvChecked= {abvChecked} classicChecked= {classicChecked}/>
             </div>
-            {search && <div className="test">
+            {(search || abvChecked || classicChecked) && <div className="test">
                 <HomeContainer beerArr = {filteredBeer} />
                 <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
             </div>}
