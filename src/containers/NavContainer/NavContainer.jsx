@@ -8,6 +8,7 @@ import HomeContainer from "../HomeContainer/HomeContainer";
 const NavContainer = (props) => {
     const {setBeerData, beerData, getBeerData} = props;
     const [search,setSearch] = useState([])
+    const [abvChecked, setAbvChecked] = useState(false)
 
     const handleInput = (event) => {
         const cleanedInput = event.target.value.toLowerCase();
@@ -25,6 +26,12 @@ const NavContainer = (props) => {
     const totalCounter= beerData.length;
 
     useEffect(setSearch,[])
+
+
+    const handleCheck = (event) => {
+
+        return setAbvChecked(!abvChecked);
+    }
  
 
 
@@ -38,7 +45,7 @@ const NavContainer = (props) => {
             </div>}
             <div>
                 <h1>Filters:</h1>
-                <Filters />
+                <Filters handleCheck= {handleCheck} abvChecked= {abvChecked}/>
             </div>
         </div>
     )

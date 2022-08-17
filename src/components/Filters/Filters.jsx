@@ -2,10 +2,23 @@ import "./Filters.scss"
 
 
 const Filters = (props) => {
+    const { handleCheck, abvChecked } = props;
+
+
 
     return (
     <>
-        <p>It Works</p>
+        <form>
+            <label>High ABV (Over 6%)
+            <input
+            type="checkbox"
+            name="abv"
+            value= {abvChecked}
+            onInput={handleCheck}
+            ></input>
+            </label>
+        </form>
+        <p>Checked is {abvChecked.toString()}</p>
     </>
     )
 }
