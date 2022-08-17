@@ -1,5 +1,6 @@
 import "./NavContainer.scss"
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Filters from "../../components/Filters/Filters";
 import { useState } from "react";
 import { useEffect } from "react";
 import HomeContainer from "../HomeContainer/HomeContainer";
@@ -35,6 +36,10 @@ const NavContainer = (props) => {
                 <HomeContainer beerArr = {filteredBeer} />
                 <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
             </div>}
+            <div>
+                <h1>Filters:</h1>
+                <Filters />
+            </div>
         </div>
     )
 }
