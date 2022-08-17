@@ -2,7 +2,7 @@ import "./Filters.scss"
 
 
 const Filters = (props) => {
-    const { filterByAbv, abvChecked, handleCheck } = props;
+    const { filterByAbv, abvChecked, handleCheck, classicChecked } = props;
     
 
    
@@ -19,8 +19,17 @@ const Filters = (props) => {
             onInput={handleCheck}
             ></input>
             </label>
+            <label>Classic Range
+                <input 
+                type="checkbox"
+                name="classic range"
+                value= {classicChecked}
+                onInput={handleCheck}
+                ></input>
+            </label>
         </form>
-        <p>Checked is {abvChecked.toString()}</p>
+        <p>ABVChecked is {abvChecked.toString()}</p>
+        <p>Classic checked is {classicChecked.toString()}</p>
     </>
     )
 }

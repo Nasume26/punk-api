@@ -8,7 +8,8 @@ import HomeContainer from "../HomeContainer/HomeContainer";
 const NavContainer = (props) => {
     const {setBeerData, beerData, getBeerData} = props;
     const [search,setSearch] = useState([])
-    const [abvChecked, setAbvChecked] = useState(true)
+    const [abvChecked, setAbvChecked] = useState(false)
+    const [classicChecked,setClassicChecked] = useState(false)
     const [mappedBeers, setMappedBeers] = useState ([])
 
     const handleInput = (event) => {
@@ -34,30 +35,40 @@ const NavContainer = (props) => {
 
     useEffect(setSearch,[])
     useEffect(onPageLoadMap, [])
+    
 
 
-
+    
 
     const handleCheck = (event) => {
-        
-        return setAbvChecked(!abvChecked),
-        placeholder()
+        if(event.target.name === "abv") {
+            console.log(event.target.name)
+            return setAbvChecked(!abvChecked)
+           
+        } else if (event.target.name === "classic range") {
+            return setClassicChecked(!classicChecked)
+        }
+
+
+       
     }
  
-    const placeholder = () => {
-        console.log(abvChecked)
-        if (abvChecked === true) {
-            setMappedBeers( beerData.filter((beer) => {
-                return beer.abv >= 6 
-            }))
-            console.log(mappedBeers)
-        } else (
+    const handleCheckBooleans = () => {
+         if(abvChecked === false && classicChecked === false) {
             setMappedBeers(beerData.map((beer) => {
                 return beer;
             }))
-        )
+        } else if (abvChecked === true && classicChecked ===false) {
+            setMappedBeers( beerData.filter((beer) => {
+                return beer.abv >= 6 
+            }))
+        } else if (classicChecked === true && abvChecked === false ) {
+            setMappedBeers ( beerData.filter((beer) => {
+                return beer.first_brewed.slice(-2) <= 5;
+            }))
+        }
     }
-
+    useEffect(handleCheckBooleans, [abvChecked,classicChecked])
 
     return (
         <div>
@@ -66,7 +77,7 @@ const NavContainer = (props) => {
            
             <div>
                 <h1>Filters:</h1>
-                <Filters handleCheck= {handleCheck} abvChecked= {abvChecked}/>
+                <Filters handleCheck= {handleCheck} abvChecked= {abvChecked} classicChecked= {classicChecked}/>
             </div>
             {search && <div className="test">
                 <HomeContainer beerArr = {filteredBeer} />
