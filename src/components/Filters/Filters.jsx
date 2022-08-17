@@ -2,8 +2,10 @@ import "./Filters.scss"
 
 
 const Filters = (props) => {
-    const { handleCheck, abvChecked } = props;
+    const { filterByAbv, abvChecked, handleCheck } = props;
+    
 
+   
 
 
     return (
