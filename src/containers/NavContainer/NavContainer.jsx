@@ -19,17 +19,11 @@ const NavContainer = (props) => {
         return lowerCaseBeer.includes(search)
     })
 
-    const handleSearch = () => {
+    const resultsCounter = filteredBeer.length;
 
-        // if (search == "") {
-        //     getBeerData();
-        // } else {
-        //     setBeerData(filteredBeer)
-        // }
+    const totalCounter= beerData.length;
 
-    }
-
-    useEffect(handleSearch, [search])
+    useEffect(setSearch,[])
  
 
 
@@ -37,9 +31,10 @@ const NavContainer = (props) => {
         <div>
             <h1>PLACEHOLDERTITLE</h1>
             <SearchBar  search={search} handleInput={handleInput}/>
-            <div className="test">
+            {search && <div className="test">
                 <HomeContainer beerArr = {filteredBeer} />
-            </div>
+                <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
+            </div>}
         </div>
     )
 }
