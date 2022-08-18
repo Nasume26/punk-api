@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import HomeContainer from "../HomeContainer/HomeContainer";
 
 const NavContainer = (props) => {
-    const {setBeerData, beerData, getBeerData} = props;
+    const { beerData } = props;
     const [search,setSearch] = useState("")
     const [abvChecked, setAbvChecked] = useState(false)
     const [classicChecked,setClassicChecked] = useState(false)
