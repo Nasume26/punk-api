@@ -10,6 +10,7 @@ const BeerCard = (props) => {
             <img src={beerArr.image_url} alt= "Beer Display" />
             <p>{beerArr.description}</p>
             <p>ABV: {beerArr.abv}</p>
+            <p>pH: {beerArr.ph}</p>
             <p>First Brewed: {beerArr.first_brewed}</p>
         </div>
 

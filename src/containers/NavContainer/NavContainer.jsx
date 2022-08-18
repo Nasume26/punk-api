@@ -41,7 +41,6 @@ const NavContainer = (props) => {
     
     
     const handleSearchBoxOnLoad = () => {
-        console.log(search.length)
         if (search.length <= 0) {
             setSearch("")
         }
@@ -72,6 +71,37 @@ const NavContainer = (props) => {
             setMappedBeers(beerData.map((beer) => {
                 return beer;
             }))
+        } else if (abvChecked === true  && classicChecked === true && acidityChecked === false) {
+            const multiBeerFilterArray = beerData.filter ((beer) => {
+                return beer.abv >= 6
+            })
+            setMappedBeers(multiBeerFilterArray.filter ((beer) => {
+                return beer.first_brewed.slice(-2) <= 10;
+            }))
+        } else if (abvChecked === true && acidityChecked === true && classicChecked === false) {
+            const multiBeerFilterArray = beerData.filter ((beer) => {
+                return beer.abv >= 6
+            })
+            setMappedBeers(multiBeerFilterArray.filter ((beer) => {
+                return beer.ph <= 4
+            }))
+        } else if (classicChecked === true && acidityChecked === true && abvChecked === false) {
+            const multiBeerFilterArray = beerData.filter((beer) => {
+                return beer.first_brewed.slice(-2) <= 10
+            })
+            setMappedBeers(multiBeerFilterArray.filter((beer) => {
+                return beer.ph <= 4
+            }))
+        } else if (classicChecked === true && acidityChecked === true && abvChecked === true) {
+            const multiBeerFilterArray = beerData.filter((beer) => {
+                return beer.abv >= 6
+            })
+            const multiBeerFilterArraySecondFilter = multiBeerFilterArray.filter((beer) => {
+                return beer.first_brewed .slice(-2) <= 10
+            })
+            setMappedBeers(multiBeerFilterArraySecondFilter.filter((beer) => {
+                return beer.ph <= 4
+            }))
         } else if (abvChecked === true && classicChecked ===false && acidityChecked === false) {
             setMappedBeers( beerData.filter((beer) => {
                 return beer.abv >= 6 
@@ -82,7 +112,7 @@ const NavContainer = (props) => {
             }))
         } else if (acidityChecked === true && abvChecked === false && classicChecked === false) {
             setMappedBeers( beerData.filter((beer) => {
-                return beer.ph < 4;
+                return beer.ph <= 4;
             }))
         }
     }
