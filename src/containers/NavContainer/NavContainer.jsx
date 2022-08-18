@@ -10,6 +10,7 @@ const NavContainer = (props) => {
     const [search,setSearch] = useState("")
     const [abvChecked, setAbvChecked] = useState(false)
     const [classicChecked,setClassicChecked] = useState(false)
+    const [acidityChecked,setAcidityChecked] = useState(false)
     const [mappedBeers, setMappedBeers] = useState ([])
 
     const handleInput = (event) => {
@@ -35,11 +36,16 @@ const NavContainer = (props) => {
         return beer;
     }))}
 
-    useEffect(setSearch,[])
+    
     useEffect(onPageLoadMap, [])
     
     
-
+    const handleSearchBoxOnLoad = () => {
+        console.log(search.length)
+        if (search.length <= 0) {
+            setSearch("")
+        }
+    }
 
     
 
@@ -47,34 +53,40 @@ const NavContainer = (props) => {
         if(event.target.name === "abv") {
             console.log(event.target.name)
             return setAbvChecked(!abvChecked),
-            setSearch("")
+            handleSearchBoxOnLoad()
            
         } else if (event.target.name === "classic range") {
             return setClassicChecked(!classicChecked),
-            setSearch("")
+            handleSearchBoxOnLoad()
+        } else if (event.target.name === "acidity") {
+            return setAcidityChecked(!acidityChecked),
+            handleSearchBoxOnLoad()
         }
-
 
        
     }
 
  
     const handleCheckBooleans = () => {
-         if(abvChecked === false && classicChecked === false) {
+         if(abvChecked === false && classicChecked === false && acidityChecked === false) {
             setMappedBeers(beerData.map((beer) => {
                 return beer;
             }))
-        } else if (abvChecked === true && classicChecked ===false) {
+        } else if (abvChecked === true && classicChecked ===false && acidityChecked === false) {
             setMappedBeers( beerData.filter((beer) => {
                 return beer.abv >= 6 
             }))
-        } else if (classicChecked === true && abvChecked === false ) {
+        } else if (classicChecked === true && abvChecked === false && acidityChecked === false ) {
             setMappedBeers ( beerData.filter((beer) => {
                 return beer.first_brewed.slice(-2) <= 10;
             }))
+        } else if (acidityChecked === true && abvChecked === false && classicChecked === false) {
+            setMappedBeers( beerData.filter((beer) => {
+                return beer.ph < 4;
+            }))
         }
     }
-    useEffect(handleCheckBooleans, [abvChecked,classicChecked])
+    useEffect(handleCheckBooleans, [abvChecked,classicChecked,acidityChecked])
 
     return (
         <div>
@@ -83,9 +95,9 @@ const NavContainer = (props) => {
            
             <div>
                 <h1>Filters:</h1>
-                <Filters handleCheck= {handleCheck} abvChecked= {abvChecked} classicChecked= {classicChecked}/>
+                <Filters handleCheck= {handleCheck} abvChecked= {abvChecked} classicChecked= {classicChecked} acidityChecked = {acidityChecked}/>
             </div>
-            {(search || abvChecked || classicChecked) && <div className="test">
+            {(search || abvChecked || classicChecked || acidityChecked) && <div className="test">
                 <HomeContainer beerArr = {filteredBeer} />
                 <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
             </div>}

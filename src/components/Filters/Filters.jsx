@@ -2,7 +2,7 @@ import "./Filters.scss"
 
 
 const Filters = (props) => {
-    const { filterByAbv, abvChecked, handleCheck, classicChecked } = props;
+    const { abvChecked, handleCheck, classicChecked, acidityChecked } = props;
     
 
    
@@ -27,9 +27,18 @@ const Filters = (props) => {
                 onInput={handleCheck}
                 ></input>
             </label>
+            <label>High Acidity (pH lower than 4)
+                <input
+                type = "checkbox"
+                name = "acidity"
+                value = {acidityChecked}
+                onInput = {handleCheck}
+                ></input>
+            </label>
         </form>
         <p>ABVChecked is {abvChecked.toString()}</p>
         <p>Classic checked is {classicChecked.toString()}</p>
+        <p>Acidity checked is {acidityChecked.toString()}</p>
     </>
     )
 }
