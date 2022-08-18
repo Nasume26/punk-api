@@ -6,7 +6,7 @@ const SearchBar = (props) => {
     return (
         <>
         <form>
-            <label>Search</label>
+            <label>Search: </label>
             <input
             type="text"
             name="Search"

@@ -121,15 +121,15 @@ const NavContainer = (props) => {
     return (
         <>
         <div className= "nav-container">
-            <h1>PLACEHOLDERTITLE</h1>
+            <h1 className="nav-container__title">Brew-Buddy</h1>
             <SearchBar  search={search} handleInput={handleInput}/>
            
-            <div>
+            <div className="nav-container__filters">
                 <h1>Filters:</h1>
                 <Filters handleCheck= {handleCheck} abvChecked= {abvChecked} classicChecked= {classicChecked} acidityChecked = {acidityChecked}/>
             </div>
         </div>
-            {(search || abvChecked || classicChecked || acidityChecked) && <div className="test">
+            {(search || abvChecked || classicChecked || acidityChecked) && <div className="search-container">
                 <HomeContainer beerArr = {filteredBeer} />
                 <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
             </div>}

@@ -1,14 +1,27 @@
+@use "../../sass/vars.scss" as *;
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: $nav-background-color;
+
+    &__title {
+        font-family: $title-font;
+        font-size: 3rem;
+        background: rgb(126, 126, 126);
+        padding: 10px;
+        border-radius: 20px;
+        color: $title-color;
+    }
 }
 
 
 
-.test {
+.search-container {
     border: 2px solid black;
     background: red;
     z-index: 100;
