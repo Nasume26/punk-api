@@ -6,6 +6,7 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
+    padding-bottom: 10px;
 
     input {
         background: $input-background;
@@ -20,6 +21,7 @@
         color: $title-color;
         font-family: $secondary-title-font;
         font-size: 1.8rem;
+        text-align: center;
     }
 
     input:focus {

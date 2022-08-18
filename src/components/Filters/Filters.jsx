@@ -10,7 +10,7 @@ const Filters = (props) => {
 
     return (
     <>
-        <form>
+        <form className="filter-form">
             <label>High ABV (Over 6%)
             <input
             type="checkbox"
