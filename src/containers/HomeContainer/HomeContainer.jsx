@@ -11,9 +11,9 @@ const HomeContainer = (props) => {
 
 
     return (
-        <>
+        <div className="home-container">
         {renderBeer}
-        </>
+        </div>
     )
 }
 
