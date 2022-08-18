@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# A React project that utilizes the Punk-Api
+
+This project intends to create a functioning page that can filter and search through the data fetched from the Punk-Api. The goal is to do this in React.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
