@@ -1,10 +1,10 @@
-
+import "./SearchBar.scss"
 
 const SearchBar = (props) => {
     const {search, handleInput} = props;
 
     return (
-        <>
+        <div className="search-box">
         <form>
             <label>Search: </label>
             <input
@@ -14,7 +14,7 @@ const SearchBar = (props) => {
             onInput= {handleInput}
             />
         </form>
-        </>
+        </div>
     )
 }
 
