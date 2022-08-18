@@ -10,7 +10,7 @@ const BeerCard = (props) => {
             <img src={beerArr.image_url} alt= "Beer Display" />
             <p className="beer-card__description">{beerArr.description}</p>
             <p className="beer-card__abv">ABV: {beerArr.abv}</p>
-            <p class-name="beer-card__ph">pH: {beerArr.ph}</p>
+            <p className="beer-card__ph">pH: {beerArr.ph}</p>
             <p className="beer-card__first">First Brewed: {beerArr.first_brewed}</p>
         </div>
 
