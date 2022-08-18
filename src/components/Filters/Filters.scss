@@ -1,8 +1,13 @@
-
+@use "../../sass/vars" as *;
 
 .filter-form {
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    label {
+        color: $title-color;
+        font-family: $secondary-title-font;
+    }
 }

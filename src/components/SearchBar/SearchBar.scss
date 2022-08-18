@@ -15,11 +15,12 @@
         padding: 5px;
         padding-left: 40px;
         padding-right: 40px;
+        font-family: $title-font;
     }
 
     label {
         color: $title-color;
-        font-family: $secondary-title-font;
+        font-family: $title-font;
         font-size: 1.8rem;
         text-align: center;
     }
