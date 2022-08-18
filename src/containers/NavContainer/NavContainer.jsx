@@ -131,7 +131,7 @@ const NavContainer = (props) => {
         </div>
             {(search || abvChecked || classicChecked || acidityChecked) && <div className="search-container">
                 <HomeContainer beerArr = {filteredBeer} />
-                <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
+                <h4 className="search-container__display">Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
             </div>}
         
         </>

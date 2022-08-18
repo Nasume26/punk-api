@@ -16,7 +16,7 @@
     background: $card-background;
 
     &__description {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: bold;
         font-family: $card-description-font;
         color: $title-color;
@@ -33,7 +33,7 @@
 
     h4 {
         font-size: 1rem;
-        font-family: $card-sub-font;
+        font-family: $title-font;
         color: $title-color;
     }
 
