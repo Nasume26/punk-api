@@ -83,14 +83,14 @@ const NavContainer = (props) => {
                 return beer.abv >= 6
             })
             setMappedBeers(multiBeerFilterArray.filter ((beer) => {
-                return beer.ph <= 4
+                return beer.ph <= 4.0
             }))
         } else if (classicChecked === true && acidityChecked === true && abvChecked === false) {
             const multiBeerFilterArray = beerData.filter((beer) => {
                 return beer.first_brewed.slice(-2) <= 10
             })
             setMappedBeers(multiBeerFilterArray.filter((beer) => {
-                return beer.ph <= 4
+                return beer.ph <= 4.0
             }))
         } else if (classicChecked === true && acidityChecked === true && abvChecked === true) {
             const multiBeerFilterArray = beerData.filter((beer) => {
@@ -100,7 +100,7 @@ const NavContainer = (props) => {
                 return beer.first_brewed .slice(-2) <= 10
             })
             setMappedBeers(multiBeerFilterArraySecondFilter.filter((beer) => {
-                return beer.ph <= 4
+                return beer.ph <= 4.0
             }))
         } else if (abvChecked === true && classicChecked ===false && acidityChecked === false) {
             setMappedBeers( beerData.filter((beer) => {
@@ -112,7 +112,7 @@ const NavContainer = (props) => {
             }))
         } else if (acidityChecked === true && abvChecked === false && classicChecked === false) {
             setMappedBeers( beerData.filter((beer) => {
-                return beer.ph <= 4;
+                return beer.ph <= 4.0;
             }))
         }
     }
