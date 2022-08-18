@@ -1,6 +1,11 @@
 @use "../../sass/vars" as *;
 
 .search-box {
+    background: $secondary-nav-background-color;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
 
     input {
         background: $input-background;
@@ -13,6 +18,8 @@
 
     label {
         color: $title-color;
+        font-family: $secondary-title-font;
+        font-size: 1.8rem;
     }
 
     input:focus {
