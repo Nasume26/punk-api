@@ -119,7 +119,8 @@ const NavContainer = (props) => {
     useEffect(handleCheckBooleans, [abvChecked,classicChecked,acidityChecked])
 
     return (
-        <div>
+        <>
+        <div className= "nav-container">
             <h1>PLACEHOLDERTITLE</h1>
             <SearchBar  search={search} handleInput={handleInput}/>
            
@@ -127,11 +128,13 @@ const NavContainer = (props) => {
                 <h1>Filters:</h1>
                 <Filters handleCheck= {handleCheck} abvChecked= {abvChecked} classicChecked= {classicChecked} acidityChecked = {acidityChecked}/>
             </div>
+        </div>
             {(search || abvChecked || classicChecked || acidityChecked) && <div className="test">
                 <HomeContainer beerArr = {filteredBeer} />
                 <h4>Displaying {resultsCounter} of {totalCounter} possible matches.</h4>
             </div>}
-        </div>
+        
+        </>
     )
 }
 

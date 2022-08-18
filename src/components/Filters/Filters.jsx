@@ -36,9 +36,6 @@ const Filters = (props) => {
                 ></input>
             </label>
         </form>
-        <p>ABVChecked is {abvChecked.toString()}</p>
-        <p>Classic checked is {classicChecked.toString()}</p>
-        <p>Acidity checked is {acidityChecked.toString()}</p>
     </>
     )
 }
