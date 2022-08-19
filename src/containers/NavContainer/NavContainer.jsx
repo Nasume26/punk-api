@@ -13,9 +13,15 @@ const NavContainer = (props) => {
     const [acidityChecked,setAcidityChecked] = useState(false)
     const [mappedBeers, setMappedBeers] = useState ([])
 
+
+    //Handles input for the search box, cleans the input for filtering.
     const handleInput = (event) => {
         const cleanedInput = event.target.value.toLowerCase();
         setSearch(cleanedInput)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
     }
 
     
@@ -122,7 +128,7 @@ const NavContainer = (props) => {
         <>
         <div className= "nav-container">
             <h1 className="nav-container__title">Brew-Buddy</h1>
-            <SearchBar  search={search} handleInput={handleInput}/>
+            <SearchBar  search={search} handleInput={handleInput} handleSubmit= {handleSubmit}/>
            
             <div className="nav-container__filters">
                 <h1>Filters:</h1>

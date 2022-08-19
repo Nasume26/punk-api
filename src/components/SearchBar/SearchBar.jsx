@@ -1,11 +1,11 @@
 import "./SearchBar.scss"
 
 const SearchBar = (props) => {
-    const {search, handleInput} = props;
+    const {search, handleInput, handleSubmit} = props;
 
     return (
         <div className="search-box">
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Search: </label>
             <input
             type="text"
