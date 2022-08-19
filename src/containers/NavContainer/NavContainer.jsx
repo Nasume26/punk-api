@@ -16,6 +16,7 @@ const NavContainer = (props) => {
     const [mappedBeers, setMappedBeers] = useState ([]);
 
 
+
     //Handles input for the search box, cleans the input for filtering.
     const handleInput = (event) => {
         const cleanedInput = event.target.value.toLowerCase();
@@ -134,7 +135,7 @@ const NavContainer = (props) => {
 
     useEffect(handleCheckBooleans, [abvChecked,classicChecked,acidityChecked])
 
-    
+
     return (
         <>
         <div className= "nav-container">

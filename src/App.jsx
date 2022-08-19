@@ -9,6 +9,7 @@ import { useState, useEffect } from "react"
 function App() {
 
   const [beerData, setBeerData] = useState();
+  const [beerPage2, setBeerPage2] = useState();
 
   const getBeerData = () => {
     fetch ("https://api.punkapi.com/v2/beers?page=1&per_page=80")
@@ -20,16 +21,22 @@ function App() {
     })
   }
 
+  
+
   useEffect(getBeerData, [])
+ 
+
+ 
+
 
 
 
   return (
     <div className="App">
-      {beerData && <NavContainer setBeerData= {setBeerData} beerData={beerData} getBeerData={getBeerData}/>}
+      {beerData&& <NavContainer beerData={beerData} />}
       {beerData && <HomeContainer beerArr={beerData}/>}
     </div>
   );
-}
+  }
 
 export default App;
