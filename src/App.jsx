@@ -71,10 +71,12 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick = {getCustomData}>CUSTOM</button>
-      <button onClick={toggleAddABeer}>ADD A BEER</button>
-      <button onClick = {getBeerData}>PUNK</button>
-      {customActive && <AddABeer />}
+      <div className="button-container">
+        <button onClick = {getCustomData} className="main-button">CUSTOM</button>
+        <button onClick={toggleAddABeer} className="main-button">ADD A BEER</button>
+        <button onClick = {getBeerData} className="main-button">PUNK</button>
+      </div>
+      {customActive && <AddABeer beerData = {beerData}/>}
       {beerData&& <NavContainer beerData={beerData} />}
       {beerData && <HomeContainer beerArr={beerData}/>}
     </div>

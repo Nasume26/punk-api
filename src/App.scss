@@ -4,4 +4,36 @@
     padding: 0;
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    background: $card-background;
 
+    .main-button {
+        padding: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 10px;
+        background: $nav-background-color;
+        color: $title-color;
+        font-family: $card-title-font;
+        font-size: 20px;
+        border: 2px solid $color-black;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .button-container {
+
+        .main-button {
+            padding: 5px;
+            padding-left: none;
+            padding-right: none;
+            margin: none;
+
+            font-size: 10px;
+        }
+    }
+}

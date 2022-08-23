@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 const AddABeer = (props) => {
+    const {beerData} = props;
+
     const [name, setName] = useState("")
     const [tagline, setTagline] = useState("")
     const [fBrew, setFBrew] = useState("")
@@ -40,7 +42,7 @@ const AddABeer = (props) => {
 
     const datOnPageUpdate = () => {
         setData ({
-            id: 6,
+            id: beerData.length + 1,
             name: name,
             tagline: tagline,
             first_brewed: fBrew.toString(),
