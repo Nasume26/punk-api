@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import './AddABeer.scss'
 
 const AddABeer = (props) => {
-    const {beerData} = props;
+    const {beerData, getCustomData} = props;
 
     const [name, setName] = useState("")
     const [tagline, setTagline] = useState("")
@@ -51,7 +52,7 @@ const AddABeer = (props) => {
             abv: abv,
             ph: ph
         })
-        console.log(data)
+        
     }
 
 
@@ -69,28 +70,31 @@ const AddABeer = (props) => {
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log("success", data)
+        alert("SUCCESFULLY POSTED CARD!!!")
+        getCustomData()
     }) 
+
+
     }
 
     useEffect(datOnPageUpdate,[name,tagline,fBrew,description,image,abv,ph])
 
     return (
-        <div>
-            <form onSubmit= {handleSubmit}>
-                <label>Name
+        <div className="add-container">
+            <form onSubmit= {handleSubmit} className="add-container__form">
+                <label>Name: 
                 <input
                 value= {name}
                 onInput= {handleName}
                 ></input>
                 </label>
-                <label>Tagline
+                <label>Tagline: 
                     <input
                     value ={tagline}
                     onInput={handleTagline}
                     ></input>
                 </label>
-                <label>first_brewed
+                <label>first_brewed: 
                     <input
                     value= {fBrew}
                     onInput = {handleFirst}
@@ -102,29 +106,25 @@ const AddABeer = (props) => {
                     onInput={handleDescription}
                     ></input>
                 </label>
-                <label>image_url
+                <label>image_url: 
                     <input
                     value={image}
                     onInput={handleImage}
                     ></input>
                 </label>
-                <label>ABV
+                <label>ABV: 
                     <input
                     value={abv}
                     onInput={handleABV}
                     ></input>
                 </label>
-                <label>ph
+                <label>ph: 
                     <input
                     value={ph}
                     onInput={handlePh}
                     ></input>
                 </label>
-                <label>SUBMIT
-                    <button>AAAAAAAA</button>
-                </label>
-
-
+                <button>SUBMIT</button>
             </form>
 
 

@@ -1,0 +1,42 @@
+@use "../../sass/vars" as *;
+
+.add-container {
+
+    background: $secondary-nav-background-color;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $title-color;
+        font-family: $card-title-font;
+
+        input {
+            color: $title-color;
+            background: $nav-background-color;
+            font-family: $card-description-font;
+            font-size: 20px;
+            font-weight: bolder;
+            padding: 5px;
+            border-radius: 10px;
+            border: 2px solid $color-black;
+        }
+
+        input:focus {
+            background: white;
+            color: $card-background;
+        }
+
+        button {
+            color: $title-color;
+            padding: 10px;
+            border-radius: 10px;
+            background: $nav-background-color;
+            font-family: $title-font;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 2px solid $color-black;
+        }
+    }
+}

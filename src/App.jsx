@@ -76,7 +76,7 @@ function App() {
         <button onClick={toggleAddABeer} className="main-button">ADD A BEER</button>
         <button onClick = {getBeerData} className="main-button">PUNK</button>
       </div>
-      {customActive && <AddABeer beerData = {beerData}/>}
+      {customActive && <AddABeer beerData = {beerData} getCustomData= {getCustomData}/>}
       {beerData&& <NavContainer beerData={beerData} />}
       {beerData && <HomeContainer beerArr={beerData}/>}
     </div>
