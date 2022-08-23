@@ -4,6 +4,7 @@ import "./App.scss";
 
 
 import { useState, useEffect } from "react"
+import AddABeer from "./containers/AddABeer/AddABeer";
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
   // }
 
   const getCustomData = () => {
-    fetch ("localhost:3012/custom/",
+    fetch ("http://localhost:3012/custom/",
       {
       headers : { 
         'Content-Type': 'application/json',
@@ -52,6 +53,11 @@ function App() {
       console.log(data)
     })
   }
+
+  const toggleAddABeer = () => {
+    setCustomActive(!customActive)
+  }
+  
   
 
   useEffect(getBeerData, [])
@@ -66,6 +72,9 @@ function App() {
   return (
     <div className="App">
       <button onClick = {getCustomData}>CUSTOM</button>
+      <button onClick={toggleAddABeer}>ADD A BEER</button>
+      <button onClick = {getBeerData}>PUNK</button>
+      {customActive && <AddABeer />}
       {beerData&& <NavContainer beerData={beerData} />}
       {beerData && <HomeContainer beerArr={beerData}/>}
     </div>
