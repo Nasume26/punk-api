@@ -50,6 +50,7 @@ const NavContainer = (props) => {
     }))};
 
     useEffect(onPageLoadMap, []);
+    useEffect(onPageLoadMap, [beerData])
     
  
     //This function allows the filters to populate the searchbox on check without having to enter
