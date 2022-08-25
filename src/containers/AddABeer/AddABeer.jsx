@@ -68,7 +68,6 @@ const AddABeer = (props) => {
        body: JSON.stringify(data)
 
     })
-    .then((res) => res.json())
     .then((data) => {
         alert("SUCCESFULLY POSTED CARD!!!")
         getCustomData()
